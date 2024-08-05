@@ -58,7 +58,9 @@ class MainActivity : AppCompatActivity() {
         binding.tagFlowLayout.setOnTagClickListener { view, position, parent ->
             Log.d("TAG", "当前选中TAG： ${position}")
         }
-
+        binding.tagFlowLayout.setOnTagLongClickListener {  view, position, parent ->
+            Log.d("TAG", "当前长按选中TAG： ${position}")
+        }
         // 状态监听
         binding.tagFlowLayout.setCheckedChangedListener { group, checkedIds ->
             binding.tvTip.text = "当前选中TAG序号：${checkedIds}"

@@ -22,7 +22,7 @@ public class CheckableGroup<T extends MaterialCheckable<T>> {
     private final Map<Integer, T> checkables = new HashMap<>();
     private final Set<Integer> checkedIds = new HashSet<>();
 
-    private CheckableGroup.OnCheckedStateChangeListener onCheckedStateChangeListener;
+    private OnCheckedStateChangeListener onCheckedStateChangeListener;
     private boolean singleSelection;
     private boolean selectionRequired;
 
@@ -45,7 +45,7 @@ public class CheckableGroup<T extends MaterialCheckable<T>> {
         return selectionRequired;
     }
 
-    public void setOnCheckedStateChangeListener(@Nullable CheckableGroup.OnCheckedStateChangeListener listener) {
+    public void setOnCheckedStateChangeListener(@Nullable OnCheckedStateChangeListener listener) {
         this.onCheckedStateChangeListener = listener;
     }
 

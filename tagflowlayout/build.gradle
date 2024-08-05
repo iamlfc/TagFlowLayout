@@ -5,7 +5,7 @@ plugins {
     id 'signing'
 }
 
-apply from: '../maven-publish.gradle'
+//apply from: '../maven-publish.gradle'
 
 android {
     compileSdk 32

@@ -7,6 +7,7 @@ import androidx.annotation.Dimension
 import androidx.core.content.res.use
 
 private typealias TagClickListener = (view: View, position: Int, parent: TagFlowLayout) -> Unit
+private typealias TagLongClickListener = (view: View, position: Int, parent: TagFlowLayout) -> Unit
 
 private typealias CheckedChangedListener = (group: TagFlowLayout, checkedIds: MutableList<Int>) -> Unit
 
@@ -39,6 +40,7 @@ class TagFlowLayout : FlowLayout {
 
     // Tag点击事件
     private var tagClickListener: TagClickListener? = null
+    private var tagLongClickListener: TagClickListener? = null
 
     // Tag状态变更监听事件
     private var checkedChangedListener: CheckedChangedListener? = null
@@ -94,7 +96,9 @@ class TagFlowLayout : FlowLayout {
     fun setOnTagClickListener(tagClickListener: TagClickListener) {
         this.tagClickListener = tagClickListener
     }
-
+    fun setOnTagLongClickListener(tagClickListener: TagLongClickListener) {
+        this.tagLongClickListener = tagClickListener
+    }
     /**
      * 设置Tag状态变更监听事件
      */
@@ -123,6 +127,10 @@ class TagFlowLayout : FlowLayout {
                     tagView.setOnClickListener {
                         doSelect(tagView, i)
                         tagClickListener?.invoke(this, i, this@TagFlowLayout)
+                    }
+                    tagView.setOnLongClickListener {
+                        tagLongClickListener?.invoke(this, i, this@TagFlowLayout)
+                        true
                     }
                 }
             }

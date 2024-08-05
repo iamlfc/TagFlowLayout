@@ -14,7 +14,7 @@ public interface MaterialCheckable<T extends MaterialCheckable<T>> extends Check
     @IdRes
     int getId();
 
-    void setInternalOnCheckedChangeListener(@Nullable MaterialCheckable.OnCheckedChangeListener<T> listener);
+    void setInternalOnCheckedChangeListener(@Nullable OnCheckedChangeListener<T> listener);
 
     /**
      * Interface definition for a callback to be invoked when a {@link MaterialCheckable} is checked
